@@ -5,7 +5,7 @@ import { useParams, useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Star, MapPin, Check, Heart, Share2, ShieldCheck, Calendar, Users, ShoppingBag, ArrowRight } from 'lucide-react';
-import { SAMPLE_PROPERTIES, SAMPLE_EXPERIENCES } from '@/lib/mock-data';
+import { SAMPLE_PROPERTIES } from '@/lib/mock-data';
 import { useBasket } from '@/lib/store/basket';
 
 export default function PropertyDetailPage() {
@@ -54,15 +54,17 @@ export default function PropertyDetailPage() {
   };
 
   return (
-    <div className="py-8 bg-navy min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+    <div className="py-6 sm:py-8 bg-navy min-h-screen pb-28 lg:pb-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 sm:space-y-8">
         
         {/* Added Notification Toast */}
         {addedBanner && (
-          <div className="fixed top-20 right-6 z-50 bg-turquoise text-navy px-6 py-4 rounded-2xl shadow-2xl font-heading font-extrabold text-sm flex items-center gap-3 border border-white/20 animate-bounce">
-            <Check className="w-5 h-5 stroke-[3]" />
-            <span>Stay added to your Trip Basket!</span>
-            <Link href="/checkout" className="underline text-navy ml-2">Checkout Now</Link>
+          <div className="fixed top-20 right-4 left-4 sm:left-auto sm:right-6 z-50 bg-turquoise text-navy px-5 py-3.5 rounded-2xl shadow-2xl font-heading font-extrabold text-xs sm:text-sm flex items-center justify-between sm:justify-start gap-3 border border-white/20 animate-bounce">
+            <div className="flex items-center gap-2">
+              <Check className="w-5 h-5 stroke-[3]" />
+              <span>Added to Trip Basket!</span>
+            </div>
+            <Link href="/checkout" className="underline text-navy font-bold">Checkout</Link>
           </div>
         )}
 
@@ -73,7 +75,7 @@ export default function PropertyDetailPage() {
             <span>/</span>
             <Link href="/stays" className="hover:text-turquoise">Stays</Link>
             <span>/</span>
-            <span className="text-turquoise font-semibold">{property.name}</span>
+            <span className="text-turquoise font-semibold truncate">{property.name}</span>
           </div>
 
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
@@ -81,13 +83,13 @@ export default function PropertyDetailPage() {
               <span className="text-xs uppercase font-extrabold text-turquoise tracking-widest">
                 {property.type} • {property.locationName}
               </span>
-              <h1 className="text-3xl sm:text-4xl font-heading font-extrabold text-white mt-1">
+              <h1 className="text-2xl sm:text-4xl font-heading font-extrabold text-white mt-1">
                 {property.name}
               </h1>
-              <div className="flex items-center gap-4 text-xs text-gray-300 mt-2">
+              <div className="flex flex-wrap items-center gap-3 text-xs text-gray-300 mt-2">
                 <span className="flex items-center gap-1 font-bold text-sand-light">
                   <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" />
-                  {property.rating} ({property.reviewCount} verified reviews)
+                  {property.rating} ({property.reviewCount} reviews)
                 </span>
                 <span className="flex items-center gap-1">
                   <MapPin className="w-4 h-4 text-turquoise" />
@@ -115,7 +117,7 @@ export default function PropertyDetailPage() {
         </div>
 
         {/* AIRBNB STYLE IMAGE GALLERY */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-3 rounded-3xl overflow-hidden aspect-[16/9] max-h-[480px]">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-3 rounded-2xl sm:rounded-3xl overflow-hidden aspect-[16/10] sm:aspect-[16/9] max-h-[440px]">
           <div className="md:col-span-2 relative h-full bg-navy-dark">
             <Image
               src={property.images[0]}
@@ -150,25 +152,20 @@ export default function PropertyDetailPage() {
               fill
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-navy/60 flex items-center justify-center">
-              <span className="text-xs font-bold text-white uppercase tracking-wider border border-white/30 px-3 py-1.5 rounded-full backdrop-blur-md">
-                + View 8 Photos
-              </span>
-            </div>
           </div>
         </div>
 
         {/* TWO COLUMN CONTENT & STICKY BOOKING PANEL */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-10">
           
           {/* LEFT DETAILS COLUMN */}
-          <div className="lg:col-span-2 space-y-10">
+          <div className="lg:col-span-2 space-y-8 sm:space-y-10">
             
             {/* Host Banner */}
-            <div className="p-6 rounded-2xl bg-navy-dark border border-white/10 flex items-center justify-between">
+            <div className="p-5 sm:p-6 rounded-2xl bg-navy-dark border border-white/10 flex items-center justify-between">
               <div className="space-y-1">
                 <span className="text-xs text-turquoise uppercase font-bold tracking-wider">Hosted by</span>
-                <h3 className="font-heading font-extrabold text-xl text-white">{property.partnerName}</h3>
+                <h3 className="font-heading font-extrabold text-lg text-white">{property.partnerName}</h3>
                 <p className="text-xs text-gray-400">Verified Semporna Native Host • Speaks Malay & English</p>
               </div>
               <div className="w-12 h-12 rounded-full bg-turquoise/20 text-turquoise flex items-center justify-center font-bold text-lg border border-turquoise/30">
@@ -178,14 +175,14 @@ export default function PropertyDetailPage() {
 
             {/* Introduction */}
             <div className="space-y-3">
-              <h2 className="text-2xl font-heading font-extrabold text-white">About this stay</h2>
-              <p className="text-sm text-gray-300 leading-relaxed">{property.description}</p>
+              <h2 className="text-xl sm:text-2xl font-heading font-extrabold text-white">About this stay</h2>
+              <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">{property.description}</p>
             </div>
 
             {/* Facilities / Amenities */}
             <div className="space-y-4 pt-4 border-t border-white/10">
-              <h2 className="text-xl font-heading font-extrabold text-white">Property Amenities</h2>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              <h2 className="text-lg sm:text-xl font-heading font-extrabold text-white">Property Amenities</h2>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-3">
                 {property.facilities.map((fac) => (
                   <div key={fac} className="flex items-center gap-2.5 p-3 rounded-xl bg-white/5 border border-white/5 text-xs text-gray-200">
                     <Check className="w-4 h-4 text-turquoise" />
@@ -197,13 +194,13 @@ export default function PropertyDetailPage() {
 
             {/* ROOM INVENTORY SECTION */}
             <div className="space-y-4 pt-4 border-t border-white/10">
-              <h2 className="text-xl font-heading font-extrabold text-white">Available Room Types</h2>
+              <h2 className="text-lg sm:text-xl font-heading font-extrabold text-white">Available Room Types</h2>
               <div className="space-y-4">
                 {property.rooms.map((rm) => (
                   <div
                     key={rm.id}
                     onClick={() => setSelectedRoom(rm)}
-                    className={`p-5 rounded-2xl border transition-all cursor-pointer flex flex-col sm:flex-row justify-between gap-4 ${
+                    className={`p-4 sm:p-5 rounded-2xl border transition-all cursor-pointer flex flex-col sm:flex-row justify-between gap-4 ${
                       selectedRoom?.id === rm.id
                         ? 'bg-turquoise/10 border-turquoise shadow-lg'
                         : 'bg-navy-dark border-white/10 hover:border-turquoise/40'
@@ -211,27 +208,26 @@ export default function PropertyDetailPage() {
                   >
                     <div className="space-y-2">
                       <div className="flex items-center gap-2">
-                        <h4 className="font-heading font-bold text-lg text-white">{rm.name}</h4>
+                        <h4 className="font-heading font-bold text-base sm:text-lg text-white">{rm.name}</h4>
                         {selectedRoom?.id === rm.id && (
                           <span className="text-[10px] bg-turquoise text-navy font-bold px-2 py-0.5 rounded">Selected</span>
                         )}
                       </div>
                       <p className="text-xs text-gray-300">{rm.description}</p>
-                      <div className="flex items-center gap-4 text-xs text-sand-light pt-1">
+                      <div className="flex flex-wrap items-center gap-3 text-xs text-sand-light pt-1">
                         <span>Capacity: {rm.capacity} Guests</span>
                         <span>Bed: {rm.bedType}</span>
-                        <span>Available: {rm.totalInventory} Rooms</span>
                       </div>
                     </div>
-                    <div className="sm:text-right flex-shrink-0 flex sm:flex-col justify-between sm:justify-center items-end">
+                    <div className="sm:text-right flex-shrink-0 flex sm:flex-col justify-between sm:justify-center items-end border-t sm:border-t-0 border-white/5 pt-3 sm:pt-0">
                       <div>
                         {rm.discountPrice ? (
                           <div className="space-y-0.5">
                             <span className="text-xs text-gray-400 line-through">RM{rm.price}</span>
-                            <div className="text-xl font-extrabold text-turquoise">RM{rm.discountPrice} <span className="text-xs font-normal text-gray-400">/ night</span></div>
+                            <div className="text-lg sm:text-xl font-extrabold text-turquoise">RM{rm.discountPrice} <span className="text-xs font-normal text-gray-400">/ night</span></div>
                           </div>
                         ) : (
-                          <div className="text-xl font-extrabold text-turquoise">RM{rm.price} <span className="text-xs font-normal text-gray-400">/ night</span></div>
+                          <div className="text-lg sm:text-xl font-extrabold text-turquoise">RM{rm.price} <span className="text-xs font-normal text-gray-400">/ night</span></div>
                         )}
                       </div>
                       <button
@@ -250,7 +246,7 @@ export default function PropertyDetailPage() {
             {/* Policies */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4 border-t border-white/10">
               <div className="space-y-2">
-                <h3 className="font-heading font-bold text-white text-base">House Rules</h3>
+                <h3 className="font-heading font-bold text-white text-sm sm:text-base">House Rules</h3>
                 <ul className="space-y-1.5 text-xs text-gray-300">
                   {property.houseRules.map((rule) => (
                     <li key={rule} className="flex items-center gap-2">
@@ -261,18 +257,17 @@ export default function PropertyDetailPage() {
                 </ul>
               </div>
               <div className="space-y-2">
-                <h3 className="font-heading font-bold text-white text-base">Cancellation Policy</h3>
+                <h3 className="font-heading font-bold text-white text-sm sm:text-base">Cancellation Policy</h3>
                 <p className="text-xs text-gray-300 leading-relaxed">{property.cancellationPolicy}</p>
               </div>
             </div>
 
           </div>
 
-          {/* RIGHT STICKY BOOKING PANEL */}
-          <div className="space-y-6">
+          {/* DESKTOP STICKY BOOKING PANEL */}
+          <div className="hidden lg:block space-y-6">
             <div className="bg-navy-dark border border-turquoise/30 p-6 rounded-3xl sticky top-24 shadow-2xl space-y-6">
               
-              {/* Header Price */}
               <div className="flex items-baseline justify-between pb-4 border-b border-white/10">
                 <div>
                   <span className="text-[10px] uppercase font-bold text-gray-400">Price Per Night</span>
@@ -289,7 +284,6 @@ export default function PropertyDetailPage() {
                 </div>
               </div>
 
-              {/* Date & Guest Inputs */}
               <div className="space-y-3">
                 <div className="grid grid-cols-2 gap-2 bg-white/5 border border-white/10 rounded-2xl p-2">
                   <div className="px-2 py-1">
@@ -327,13 +321,11 @@ export default function PropertyDetailPage() {
                 </div>
               </div>
 
-              {/* Room Selected Summary */}
               <div className="bg-white/5 p-3 rounded-xl border border-white/5 text-xs space-y-1">
                 <div className="text-gray-400 font-medium">Selected Room:</div>
                 <div className="font-bold text-white">{selectedRoom?.name}</div>
               </div>
 
-              {/* Price Breakdown */}
               <div className="space-y-2 text-xs text-gray-300 pt-2 border-t border-white/10">
                 <div className="flex justify-between">
                   <span>RM{roomPrice} x {nights} nights</span>
@@ -349,7 +341,6 @@ export default function PropertyDetailPage() {
                 </div>
               </div>
 
-              {/* Action CTA */}
               <button
                 onClick={handleAddToCart}
                 className="w-full py-4 rounded-2xl bg-gradient-to-r from-turquoise to-ocean text-navy font-heading font-extrabold text-sm tracking-wide hover:opacity-95 transition-all shadow-xl shadow-turquoise/20 flex items-center justify-center gap-2"
@@ -357,15 +348,25 @@ export default function PropertyDetailPage() {
                 <ShoppingBag className="w-4 h-4 stroke-[2.5]" />
                 <span>Add Stay To Trip Basket</span>
               </button>
-
-              <div className="flex items-center justify-center gap-1.5 text-[11px] text-gray-400">
-                <ShieldCheck className="w-3.5 h-3.5 text-turquoise" />
-                <span>Instant Confirmation • No booking fees</span>
-              </div>
             </div>
           </div>
 
         </div>
+      </div>
+
+      {/* MOBILE STICKY BOTTOM ACTION BAR (Native Web App experience) */}
+      <div className="lg:hidden fixed bottom-14 left-0 right-0 z-40 bg-navy-dark/95 backdrop-blur-xl border-t border-turquoise/30 px-4 py-3 shadow-2xl flex items-center justify-between">
+        <div>
+          <span className="text-[10px] text-gray-400 uppercase block font-semibold">RM{roomPrice} / night</span>
+          <span className="text-sm font-heading font-extrabold text-turquoise">Total RM{totalStayPrice}</span>
+        </div>
+        <button
+          onClick={handleAddToCart}
+          className="px-6 py-3 rounded-xl bg-turquoise text-navy font-heading font-extrabold text-xs flex items-center gap-2 shadow-lg shadow-turquoise/20"
+        >
+          <ShoppingBag className="w-4 h-4 stroke-[2.5]" />
+          <span>Add To Basket</span>
+        </button>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Plus_Jakarta_Sans, Inter } from 'next/font/google';
 import './globals.css';
 import { BasketProvider } from '@/lib/store/basket';
@@ -20,10 +20,24 @@ const inter = Inter({
   weight: ['400', '500', '600', '700'],
 });
 
+export const viewport: Viewport = {
+  themeColor: '#071923',
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  viewportFit: 'cover',
+};
+
 export const metadata: Metadata = {
   title: 'Semporna Local | Discover Semporna Like a Local',
   description: 'Handpicked local stays, trusted local guides, authentic island experiences, and Tawau Airport transfers in Semporna, Sabah, Malaysia.',
   keywords: ['Semporna', 'Mabul Island', 'Bohey Dulang', 'Sipadan', 'Sabah Tourism', 'Water Chalets', 'Local Guide Semporna'],
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'black-translucent',
+    title: 'Semporna Local',
+  },
   openGraph: {
     title: 'Semporna Local | Discover Semporna Like a Local',
     description: 'Handpicked local stays, trusted local guides and authentic experiences — all in one place.',
@@ -48,11 +62,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${jakarta.variable} ${inter.variable}`}>
-      <body className="bg-navy font-body text-offwhite min-h-screen flex flex-col antialiased selection:bg-turquoise selection:text-navy">
+      <body className="bg-navy font-body text-offwhite min-h-screen flex flex-col antialiased selection:bg-turquoise selection:text-navy pb-16 lg:pb-0">
         <LanguageProvider>
           <BasketProvider>
             <Navbar />
-            <main className="flex-1">{children}</main>
+            <main className="flex-1 max-w-7xl mx-auto w-full">{children}</main>
             <Footer />
             <MobileBottomNav />
             <WhatsAppButton />
