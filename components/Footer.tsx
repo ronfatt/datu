@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Palmtree, Globe, ShieldCheck, Heart, MessageCircle, Share2, Compass } from 'lucide-react';
+import { Palmtree, Globe, ShieldCheck, MessageCircle } from 'lucide-react';
 import { useLanguage } from '@/lib/i18n';
 
 export default function Footer() {
@@ -19,15 +19,20 @@ export default function Footer() {
               <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-ocean to-turquoise flex items-center justify-center text-navy shadow-md">
                 <Palmtree className="w-6 h-6 stroke-[2.5]" />
               </div>
-              <span className="font-heading font-extrabold text-xl tracking-tight text-white">
-                SEMPORNA <span className="text-turquoise">LOCAL</span>
-              </span>
+              <div className="flex flex-col">
+                <span className="font-heading font-extrabold text-xl tracking-tight text-white">
+                  DATU<span className="text-turquoise">.H</span>
+                </span>
+                <span className="text-[10px] tracking-wider font-bold uppercase text-sand-light -mt-1">
+                  Your Local Way to Semporna
+                </span>
+              </div>
             </Link>
             <p className="text-sm text-gray-400 max-w-sm">
-              Handpicked local stays, trusted guides, authentic island experiences, and airport transfers — all in one local booking platform.
+              Handpicked local stays, trusted guides, authentic island experiences, and airport transfers — all in one platform.
             </p>
-            <p className="text-xs text-sand font-medium">
-              &ldquo;WE DON’T JUST SHOW YOU SEMPORNA. WE CONNECT YOU WITH THE PEOPLE WHO CALL IT HOME.&rdquo;
+            <p className="text-xs text-turquoise font-extrabold tracking-wide">
+              Datu.H — Your Local Way to Semporna
             </p>
             <div className="flex items-center gap-3 pt-2">
               <a
@@ -59,7 +64,7 @@ export default function Footer() {
           <div className="space-y-3">
             <h4 className="font-heading font-bold text-white text-sm uppercase tracking-wider">Company</h4>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/#story" className="hover:text-turquoise transition-colors">About Semporna Local</Link></li>
+              <li><Link href="/#story" className="hover:text-turquoise transition-colors">About Datu.H</Link></li>
               <li><Link href="/partner" className="text-sand font-semibold hover:underline">Become A Partner</Link></li>
               <li><Link href="/partner/dashboard" className="hover:text-turquoise transition-colors">Partner Portal</Link></li>
               <li><Link href="/admin" className="hover:text-turquoise transition-colors">Admin Portal</Link></li>
@@ -81,7 +86,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-400">
-          <p>© 2026 Semporna Local. All rights reserved. Semporna, Sabah, Malaysia.</p>
+          <p>© 2026 Datu.H. All rights reserved. Semporna, Sabah, Malaysia.</p>
           <div className="flex items-center gap-6">
             <span className="flex items-center gap-1"><Globe className="w-3.5 h-3.5 text-turquoise" /> MYR (RM)</span>
             <span className="flex items-center gap-1"><ShieldCheck className="w-3.5 h-3.5 text-turquoise" /> Verified Sabah Tourism Platform</span>

@@ -2,8 +2,8 @@ import { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Semporna Local - Discover Semporna Like a Local',
-    short_name: 'Semporna Local',
+    name: 'Datu.H — Your Local Way to Semporna',
+    short_name: 'Datu.H',
     description: 'Handpicked local stays, trusted local guides, authentic island experiences and Tawau Airport transfers in Semporna, Sabah, Malaysia.',
     start_url: '/',
     display: 'standalone',

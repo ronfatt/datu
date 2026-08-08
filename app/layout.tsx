@@ -30,19 +30,19 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: 'Semporna Local | Discover Semporna Like a Local',
-  description: 'Handpicked local stays, trusted local guides, authentic island experiences, and Tawau Airport transfers in Semporna, Sabah, Malaysia.',
-  keywords: ['Semporna', 'Mabul Island', 'Bohey Dulang', 'Sipadan', 'Sabah Tourism', 'Water Chalets', 'Local Guide Semporna'],
+  title: 'Datu.H — Your Local Way to Semporna',
+  description: 'Datu.H — Your Local Way to Semporna. Handpicked local stays, trusted local guides, authentic island experiences, and Tawau Airport transfers in Semporna, Sabah, Malaysia.',
+  keywords: ['Datu.H', 'Semporna', 'Mabul Island', 'Bohey Dulang', 'Sipadan', 'Sabah Tourism', 'Water Chalets', 'Local Guide Semporna'],
   appleWebApp: {
     capable: true,
     statusBarStyle: 'black-translucent',
-    title: 'Semporna Local',
+    title: 'Datu.H Semporna',
   },
   openGraph: {
-    title: 'Semporna Local | Discover Semporna Like a Local',
+    title: 'Datu.H — Your Local Way to Semporna',
     description: 'Handpicked local stays, trusted local guides and authentic experiences — all in one place.',
     url: 'https://sempornalocal.com',
-    siteName: 'Semporna Local',
+    siteName: 'Datu.H',
     images: [
       {
         url: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80',

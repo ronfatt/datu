@@ -3,9 +3,9 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { ShoppingBag, User, Compass, Palmtree, Map, Globe, Menu, X, ShieldCheck } from 'lucide-react';
+import { ShoppingBag, User, Compass, Palmtree, Globe, Menu, X } from 'lucide-react';
 import { useBasket } from '@/lib/store/basket';
-import { useLanguage, Language } from '@/lib/i18n';
+import { useLanguage } from '@/lib/i18n';
 import BasketDrawer from './BasketDrawer';
 
 export default function Navbar() {
@@ -30,17 +30,17 @@ export default function Navbar() {
       <header className="sticky top-0 z-40 w-full bg-navy/95 backdrop-blur-md border-b border-white/10 text-white transition-all">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 sm:h-20">
-            {/* Logo */}
+            {/* Logo with Datu.H & New Slogan */}
             <Link href="/" className="flex items-center gap-2 group">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-ocean to-turquoise flex items-center justify-center text-navy shadow-md shadow-turquoise/20 group-hover:scale-105 transition-transform">
                 <Palmtree className="w-6 h-6 stroke-[2.5]" />
               </div>
               <div className="flex flex-col">
                 <span className="font-heading font-extrabold text-xl tracking-tight text-white flex items-center gap-1">
-                  SEMPORNA <span className="text-turquoise">LOCAL</span>
+                  DATU<span className="text-turquoise">.H</span>
                 </span>
-                <span className="text-[10px] tracking-widest uppercase font-semibold text-sand-light/80 -mt-1">
-                  Discover Like a Local
+                <span className="text-[9px] tracking-wider font-bold uppercase text-sand-light -mt-1 truncate">
+                  Your Local Way to Semporna
                 </span>
               </div>
             </Link>
@@ -166,14 +166,6 @@ export default function Navbar() {
                 <Compass className="w-4 h-4" />
                 <span>{t('nav_my_trips')}</span>
               </Link>
-              <div className="flex items-center justify-between px-4 pt-2">
-                <Link href="/partner" className="text-xs text-sand hover:underline">
-                  {t('nav_partner')}
-                </Link>
-                <Link href="/admin" className="text-xs text-gray-400 hover:underline">
-                  {t('nav_admin')}
-                </Link>
-              </div>
             </div>
           </div>
         )}

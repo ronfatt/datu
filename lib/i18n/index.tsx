@@ -6,10 +6,11 @@ export type Language = 'en' | 'ms' | 'zh';
 
 export const DICTIONARY: Record<Language, Record<string, string>> = {
   en: {
+    hero_slogan: 'Datu.H — Your Local Way to Semporna',
     hero_title: 'DISCOVER SEMPORNA LIKE A LOCAL',
-    hero_subtitle: 'Handpicked local stays, trusted guides and unforgettable island experiences — all in one place.',
-    explore_cta: 'Explore Semporna',
-    build_trip_cta: 'Build My Trip',
+    hero_subtitle: 'Handpicked local stays, trusted native guides and authentic island experiences.',
+    explore_cta: 'Explore Stays & Tours',
+    build_trip_cta: 'Trip Planner',
     search_destination: 'Destination',
     search_checkin: 'Check-in',
     search_checkout: 'Check-out',
@@ -57,33 +58,15 @@ export const DICTIONARY: Record<Language, Record<string, string>> = {
     nav_login: 'Log In',
     nav_partner: 'Partner Portal',
     nav_admin: 'Admin',
-    
-    why_title: 'LOCAL KNOWLEDGE. REAL EXPERIENCES.',
-    why_subtitle: "We're not here to show you every place in Semporna. We help you discover the right ones.",
-    benefit_1_title: 'Handpicked Locally',
-    benefit_1_desc: 'Every stay and experience is personally vetted by our local team in Semporna.',
-    benefit_2_title: 'Trusted Partners',
-    benefit_2_desc: 'Direct connection with licensed native boat captains and home hosts.',
-    benefit_3_title: 'Secure Booking',
-    benefit_3_desc: 'Instant confirmation, transparent pricing, and safe Malaysian payment options.',
-    benefit_4_title: 'Local Support',
-    benefit_4_desc: '24/7 WhatsApp assistance from our team on the ground in Semporna.',
 
-    brand_story_title: 'WE DON’T JUST SHOW YOU SEMPORNA.',
-    brand_story_subtitle: 'WE CONNECT YOU WITH THE PEOPLE WHO CALL IT HOME.',
-    brand_story_body: 'Semporna is more than beautiful islands. Behind every journey are local hosts, boatmen, guides, families and communities who know this place better than anyone.',
-
-    partner_cta_title: 'Share Semporna With The World',
-    partner_cta_desc: 'Are you a homestay owner, local guide, boat operator or experience provider?',
-    become_partner: 'Become A Partner',
-    
-    footer_tagline: 'Discover Semporna Like a Local.',
+    footer_tagline: 'Datu.H — Your Local Way to Semporna',
   },
   ms: {
+    hero_slogan: 'Datu.H — Your Local Way to Semporna',
     hero_title: 'TEROKAI SEMPORNA SEPERTI ANAK TEMPATAN',
     hero_subtitle: 'Penginapan pilihan tempatan, pemandu pelancong dipercayai & pengalaman pulau tak dapat dilupakan.',
     explore_cta: 'Terokai Semporna',
-    build_trip_cta: 'Rancang Perjalanan Saya',
+    build_trip_cta: 'Perancang Percutian',
     search_destination: 'Destinasi',
     search_checkin: 'Tarikh Masuk',
     search_checkout: 'Tarikh Keluar',
@@ -132,32 +115,14 @@ export const DICTIONARY: Record<Language, Record<string, string>> = {
     nav_partner: 'Portal Rakan Niaga',
     nav_admin: 'Pentadbir',
 
-    why_title: 'PENGETAHUAN TEMPATAN. PENGALAMAN SEBENAR.',
-    why_subtitle: 'Kami bukan sekadar tunjuk semua tempat. Kami bantu anda temui tempat yang paling tepat.',
-    benefit_1_title: 'Pilihan Anak Tempatan',
-    benefit_1_desc: 'Setiap penginapan disemak khas oleh pasukan tempatan kami di Semporna.',
-    benefit_2_title: 'Rakan Niaga Dipercayai',
-    benefit_2_desc: 'Hubungan terus dengan kapten bot dan tuan rumah berlesen.',
-    benefit_3_title: 'Tempahan Selamat',
-    benefit_3_desc: 'Pengesahan segera, harga telus dan pembayaran tempatan yang selamat.',
-    benefit_4_title: 'Sokongan Tempatan',
-    benefit_4_desc: 'Bantuan WhatsApp 24/7 daripada pasukan kami di Semporna.',
-
-    brand_story_title: 'KAMI BUKAN HANYA TUNJUK SEMPORNA.',
-    brand_story_subtitle: 'KAMI HUBUNGKAN ANDA DENGAN INSAN YANG MENJADIKANNYA RUMAH.',
-    brand_story_body: 'Semporna lebih daripada sekadar pulau yang indah. Di sebalik setiap perjalanan adalah komuniti tempatan, pemandu bot dan keluarga tempatan.',
-
-    partner_cta_title: 'Kongsi Semporna Bersama Dunia',
-    partner_cta_desc: 'Adakah anda pemilik homestay, pemandu tempatan atau pengusaha bot?',
-    become_partner: 'Sertai Sebagai Rakan Niaga',
-
-    footer_tagline: 'Terokai Semporna Seperti Anak Tempatan.',
+    footer_tagline: 'Datu.H — Your Local Way to Semporna',
   },
   zh: {
+    hero_slogan: 'Datu.H — Your Local Way to Semporna',
     hero_title: '像当地人一样探索仙本那',
-    hero_subtitle: '精选当地住宿、值得信赖的导游与难忘的海岛体验 — 一站式为您呈献。',
-    explore_cta: '探索仙本那',
-    build_trip_cta: '定制我的行程',
+    hero_subtitle: '精选本地水上屋民宿、信赖导游与海岛深度体验。',
+    explore_cta: '探索住宿与行程',
+    build_trip_cta: '定制行程',
     search_destination: '目的地',
     search_checkin: '入住日期',
     search_checkout: '退房日期',
@@ -206,26 +171,7 @@ export const DICTIONARY: Record<Language, Record<string, string>> = {
     nav_partner: '合作伙伴',
     nav_admin: '管理员',
 
-    why_title: '本地智慧 · 真实体验',
-    why_subtitle: '我们不只是向您展示仙本那的全部，而是帮您找到最适合的那一个。',
-    benefit_1_title: '本地精选',
-    benefit_1_desc: '仙本那本土团队实地考察并严格甄选每一家住宿与行程。',
-    benefit_2_title: '信赖伙伴',
-    benefit_2_desc: '直接对接持牌本地船长与水上屋房东。',
-    benefit_3_title: '安全预订',
-    benefit_3_desc: '即时确认，价格透明，支持便捷安全的支付方式。',
-    benefit_4_title: '本土客服',
-    benefit_4_desc: '仙本那当地团队全天候 24/7 WhatsApp 在线贴心支持。',
-
-    brand_story_title: '我们不仅向您展示仙本那',
-    brand_story_subtitle: '更带您连接以此为家的仙本那人',
-    brand_story_body: '仙本那不仅仅有美丽的海岛。每一次旅程的背后，都有深爱这片大海的本土船长、导游与原住民家庭。',
-
-    partner_cta_title: '与世界分享仙本那',
-    partner_cta_desc: '您是民宿业主、本土导游、船家还是体验提供者？',
-    become_partner: '成为合作伙伴',
-
-    footer_tagline: '像当地人一样探索仙本那。',
+    footer_tagline: 'Datu.H — Your Local Way to Semporna',
   }
 };
 
