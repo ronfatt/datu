@@ -7,6 +7,7 @@ import Navbar from '@/components/Navbar';
 import MobileBottomNav from '@/components/MobileBottomNav';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
+import JsonLd from '@/components/JsonLd';
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -21,7 +22,7 @@ const inter = Inter({
 });
 
 export const viewport: Viewport = {
-  themeColor: '#071923',
+  themeColor: '#090B0E',
   width: 'device-width',
   initialScale: 1,
   maximumScale: 1,
@@ -29,29 +30,81 @@ export const viewport: Viewport = {
   viewportFit: 'cover',
 };
 
+const SITE_TITLE = 'MAHLIGAI SEMPORNA — Datu.H | Your Local Way to Semporna';
+const SITE_DESCRIPTION = 'Discover Semporna like a local. Handpicked overwater chalets, trusted native guides, Bohey Dulang hikes, Sipadan dive permits & Tawau airport transfers — all in one local booking platform.';
+const OG_IMAGE_URL = 'https://images.unsplash.com/photo-1512100356356-de1b84283e18?auto=format&fit=crop&w=1200&h=630&q=80';
+
 export const metadata: Metadata = {
-  title: 'Datu.H — Your Local Way to Semporna',
-  description: 'Datu.H — Your Local Way to Semporna. Handpicked local stays, trusted local guides, authentic island experiences, and Tawau Airport transfers in Semporna, Sabah, Malaysia.',
-  keywords: ['Datu.H', 'Semporna', 'Mabul Island', 'Bohey Dulang', 'Sipadan', 'Sabah Tourism', 'Water Chalets', 'Local Guide Semporna'],
+  metadataBase: new URL('https://sempornalocal.com'),
+  title: {
+    default: SITE_TITLE,
+    template: '%s | Mahligai Semporna by Datu.H',
+  },
+  description: SITE_DESCRIPTION,
+  keywords: [
+    'Mahligai Semporna',
+    'Datu.H',
+    'Semporna Travel Booking',
+    'Semporna Water Chalets',
+    'Mabul Island Resort',
+    'Bohey Dulang Hike',
+    'Sipadan Permit',
+    'Tawau Airport Transfer',
+    'Local Guide Semporna',
+    'Sabah Tourism Malaysia',
+  ],
+  authors: [{ name: 'Mahligai Semporna by Datu.H' }],
+  creator: 'Datu.H',
+  publisher: 'Mahligai Semporna',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   appleWebApp: {
     capable: true,
     statusBarStyle: 'black-translucent',
-    title: 'Datu.H Semporna',
+    title: 'Mahligai Semporna',
   },
+
+  // Open Graph for Social Media Link Sharing (WhatsApp, WeChat, Facebook, LinkedIn)
   openGraph: {
-    title: 'Datu.H — Your Local Way to Semporna',
-    description: 'Handpicked local stays, trusted local guides and authentic experiences — all in one place.',
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     url: 'https://sempornalocal.com',
-    siteName: 'Datu.H',
+    siteName: 'MAHLIGAI SEMPORNA by Datu.H',
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80',
+        url: OG_IMAGE_URL,
         width: 1200,
         height: 630,
+        alt: 'Mahligai Semporna Aerial Island Drone View',
       },
     ],
     locale: 'en_US',
     type: 'website',
+  },
+
+  // Twitter Large Card Preview
+  twitter: {
+    card: 'summary_large_image',
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: [OG_IMAGE_URL],
+    creator: '@DatuHSemporna',
+  },
+
+  // Robots SEO Directive
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 };
 
@@ -62,7 +115,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${jakarta.variable} ${inter.variable}`}>
-      <body className="bg-navy font-body text-offwhite min-h-screen flex flex-col antialiased selection:bg-turquoise selection:text-navy pb-16 lg:pb-0">
+      <head>
+        <JsonLd />
+      </head>
+      <body className="bg-navy font-body text-offwhite min-h-screen flex flex-col antialiased selection:bg-gold selection:text-navy pb-16 lg:pb-0">
         <LanguageProvider>
           <BasketProvider>
             <Navbar />
