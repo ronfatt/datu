@@ -3,10 +3,11 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { ShoppingBag, User, Compass, Palmtree, Globe, Menu, X } from 'lucide-react';
+import { ShoppingBag, User, Compass, Globe, Menu, X } from 'lucide-react';
 import { useBasket } from '@/lib/store/basket';
 import { useLanguage } from '@/lib/i18n';
 import BasketDrawer from './BasketDrawer';
+import MahligaiLogo from './MahligaiLogo';
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -27,22 +28,13 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="sticky top-0 z-40 w-full bg-navy/95 backdrop-blur-md border-b border-white/10 text-white transition-all">
+      <header className="sticky top-0 z-40 w-full bg-navy/95 backdrop-blur-md border-b border-gold-medium/25 text-white transition-all shadow-glass">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 sm:h-20">
-            {/* Logo with Datu.H & New Slogan */}
-            <Link href="/" className="flex items-center gap-2 group">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-ocean to-turquoise flex items-center justify-center text-navy shadow-md shadow-turquoise/20 group-hover:scale-105 transition-transform">
-                <Palmtree className="w-6 h-6 stroke-[2.5]" />
-              </div>
-              <div className="flex flex-col">
-                <span className="font-heading font-extrabold text-xl tracking-tight text-white flex items-center gap-1">
-                  DATU<span className="text-turquoise">.H</span>
-                </span>
-                <span className="text-[9px] tracking-wider font-bold uppercase text-sand-light -mt-1 truncate">
-                  Your Local Way to Semporna
-                </span>
-              </div>
+          <div className="flex items-center justify-between h-20 sm:h-24">
+            
+            {/* Mahligai Semporna Brand Logo */}
+            <Link href="/" className="flex items-center group">
+              <MahligaiLogo size="md" />
             </Link>
 
             {/* Desktop Navigation Links */}
@@ -53,10 +45,10 @@ export default function Navbar() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`px-3.5 py-2 rounded-full text-sm font-medium transition-all ${
+                    className={`px-3.5 py-2 rounded-full text-xs font-semibold tracking-wide transition-all ${
                       isActive
-                        ? 'bg-turquoise/15 text-turquoise font-semibold'
-                        : 'text-gray-300 hover:text-white hover:bg-white/5'
+                        ? 'bg-gold/20 text-gold border border-gold/40'
+                        : 'text-gray-300 hover:text-gold-light hover:bg-white/5'
                     }`}
                   >
                     {link.name}
@@ -71,29 +63,29 @@ export default function Navbar() {
               <div className="relative">
                 <button
                   onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
-                  className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-white/10 bg-white/5 text-xs text-gray-200 hover:border-turquoise/50 transition-colors"
+                  className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-gold/30 bg-white/5 text-xs text-gray-200 hover:border-gold transition-colors"
                 >
-                  <Globe className="w-3.5 h-3.5 text-turquoise" />
-                  <span className="uppercase font-semibold">{language}</span>
+                  <Globe className="w-3.5 h-3.5 text-gold" />
+                  <span className="uppercase font-semibold text-gold-light">{language}</span>
                 </button>
 
                 {isLangMenuOpen && (
-                  <div className="absolute right-0 mt-2 w-36 bg-navy-dark border border-white/10 rounded-xl shadow-glass overflow-hidden z-50">
+                  <div className="absolute right-0 mt-2 w-36 bg-navy-dark border border-gold/30 rounded-xl shadow-glass overflow-hidden z-50">
                     <button
                       onClick={() => { setLanguage('en'); setIsLangMenuOpen(false); }}
-                      className={`w-full text-left px-4 py-2.5 text-xs font-medium ${language === 'en' ? 'bg-turquoise/20 text-turquoise' : 'text-gray-300 hover:bg-white/5'}`}
+                      className={`w-full text-left px-4 py-2.5 text-xs font-medium ${language === 'en' ? 'bg-gold/20 text-gold' : 'text-gray-300 hover:bg-white/5'}`}
                     >
                       English (EN)
                     </button>
                     <button
                       onClick={() => { setLanguage('ms'); setIsLangMenuOpen(false); }}
-                      className={`w-full text-left px-4 py-2.5 text-xs font-medium ${language === 'ms' ? 'bg-turquoise/20 text-turquoise' : 'text-gray-300 hover:bg-white/5'}`}
+                      className={`w-full text-left px-4 py-2.5 text-xs font-medium ${language === 'ms' ? 'bg-gold/20 text-gold' : 'text-gray-300 hover:bg-white/5'}`}
                     >
                       Bahasa Melayu (MS)
                     </button>
                     <button
                       onClick={() => { setLanguage('zh'); setIsLangMenuOpen(false); }}
-                      className={`w-full text-left px-4 py-2.5 text-xs font-medium ${language === 'zh' ? 'bg-turquoise/20 text-turquoise' : 'text-gray-300 hover:bg-white/5'}`}
+                      className={`w-full text-left px-4 py-2.5 text-xs font-medium ${language === 'zh' ? 'bg-gold/20 text-gold' : 'text-gray-300 hover:bg-white/5'}`}
                     >
                       简体中文 (ZH)
                     </button>
@@ -104,12 +96,12 @@ export default function Navbar() {
               {/* Basket Icon Button */}
               <button
                 onClick={() => setIsBasketOpen(true)}
-                className="relative p-2.5 rounded-full bg-white/5 hover:bg-turquoise/20 border border-white/10 text-white hover:text-turquoise transition-all"
+                className="relative p-2.5 rounded-full bg-white/5 hover:bg-gold/20 border border-gold/30 text-white hover:text-gold transition-all"
                 aria-label="Open Travel Basket"
               >
-                <ShoppingBag className="w-5 h-5" />
+                <ShoppingBag className="w-5 h-5 text-gold" />
                 {items.length > 0 && (
-                  <span className="absolute -top-1 -right-1 w-5 h-5 bg-turquoise text-navy font-bold text-xs rounded-full flex items-center justify-center animate-bounce shadow-md">
+                  <span className="absolute -top-1 -right-1 w-5 h-5 bg-gold text-navy font-extrabold text-xs rounded-full flex items-center justify-center animate-bounce shadow-md">
                     {items.length}
                   </span>
                 )}
@@ -118,16 +110,16 @@ export default function Navbar() {
               {/* My Trips Link */}
               <Link
                 href="/my-trips"
-                className="hidden sm:flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-white bg-white/10 hover:bg-white/20 rounded-lg transition-colors border border-white/10"
+                className="hidden sm:flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-gold-light bg-gold/15 hover:bg-gold/30 rounded-lg transition-colors border border-gold/40"
               >
-                <Compass className="w-4 h-4 text-turquoise" />
+                <Compass className="w-4 h-4 text-gold" />
                 <span>{t('nav_my_trips')}</span>
               </Link>
 
               {/* User Profile / Login */}
               <Link
                 href="/login"
-                className="p-2.5 rounded-full bg-turquoise text-navy font-bold hover:bg-turquoise-light transition-colors shadow-md shadow-turquoise/20"
+                className="p-2.5 rounded-full bg-gold-gradient text-navy font-bold hover:opacity-90 transition-opacity shadow-md shadow-gold/20"
                 aria-label="Profile"
               >
                 <User className="w-5 h-5" />
@@ -136,7 +128,7 @@ export default function Navbar() {
               {/* Mobile Hamburger Menu Toggle */}
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="lg:hidden p-2 text-gray-300 hover:text-white"
+                className="lg:hidden p-2 text-gray-300 hover:text-gold"
               >
                 {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
@@ -146,13 +138,13 @@ export default function Navbar() {
 
         {/* Mobile Expanded Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden border-t border-white/10 bg-navy px-4 pt-3 pb-6 space-y-2">
+          <div className="lg:hidden border-t border-gold/20 bg-navy px-4 pt-3 pb-6 space-y-2">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block px-4 py-2.5 rounded-xl text-base font-medium text-gray-200 hover:text-turquoise hover:bg-white/5"
+                className="block px-4 py-2.5 rounded-xl text-base font-medium text-gray-200 hover:text-gold hover:bg-white/5"
               >
                 {link.name}
               </Link>
@@ -161,7 +153,7 @@ export default function Navbar() {
               <Link
                 href="/my-trips"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold bg-white/5 text-turquoise"
+                className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold bg-gold/10 text-gold border border-gold/30"
               >
                 <Compass className="w-4 h-4" />
                 <span>{t('nav_my_trips')}</span>

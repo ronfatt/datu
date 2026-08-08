@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Search, MapPin, Calendar, Users, ArrowRight } from 'lucide-react';
+import { Search, MapPin, Calendar, Users } from 'lucide-react';
 import { useLanguage } from '@/lib/i18n';
 
 export default function HeroSearch() {
@@ -21,13 +21,13 @@ export default function HeroSearch() {
   return (
     <form
       onSubmit={handleSearch}
-      className="w-full max-w-4xl mx-auto bg-navy/70 backdrop-blur-xl border border-white/20 rounded-2xl sm:rounded-full p-3 sm:p-2 shadow-2xl flex flex-col sm:flex-row items-stretch sm:items-center gap-2 transition-all hover:border-turquoise/40"
+      className="w-full max-w-4xl mx-auto bg-navy/80 backdrop-blur-xl border border-gold/40 rounded-2xl sm:rounded-full p-3 sm:p-2 shadow-2xl flex flex-col sm:flex-row items-stretch sm:items-center gap-2 transition-all hover:border-gold shadow-gold-glow"
     >
       {/* Destination */}
-      <div className="flex-1 flex items-center gap-3 px-4 py-2.5 sm:py-2 rounded-xl sm:rounded-full hover:bg-white/5 transition-colors cursor-pointer border-b sm:border-b-0 sm:border-r border-white/10">
-        <MapPin className="w-5 h-5 text-turquoise flex-shrink-0" />
+      <div className="flex-1 flex items-center gap-3 px-4 py-2.5 sm:py-2 rounded-xl sm:rounded-full hover:bg-white/5 transition-colors cursor-pointer border-b sm:border-b-0 sm:border-r border-gold/20">
+        <MapPin className="w-5 h-5 text-gold flex-shrink-0" />
         <div className="flex flex-col text-left">
-          <span className="text-[10px] uppercase font-bold tracking-wider text-sand-light">{t('search_destination')}</span>
+          <span className="text-[10px] uppercase font-bold tracking-wider text-gold-medium">{t('search_destination')}</span>
           <select
             value={location}
             onChange={(e) => setLocation(e.target.value)}
@@ -44,10 +44,10 @@ export default function HeroSearch() {
       </div>
 
       {/* Check In */}
-      <div className="flex-1 flex items-center gap-3 px-4 py-2.5 sm:py-2 rounded-xl sm:rounded-full hover:bg-white/5 transition-colors border-b sm:border-b-0 sm:border-r border-white/10">
-        <Calendar className="w-5 h-5 text-turquoise flex-shrink-0" />
+      <div className="flex-1 flex items-center gap-3 px-4 py-2.5 sm:py-2 rounded-xl sm:rounded-full hover:bg-white/5 transition-colors border-b sm:border-b-0 sm:border-r border-gold/20">
+        <Calendar className="w-5 h-5 text-gold flex-shrink-0" />
         <div className="flex flex-col text-left">
-          <span className="text-[10px] uppercase font-bold tracking-wider text-sand-light">{t('search_checkin')}</span>
+          <span className="text-[10px] uppercase font-bold tracking-wider text-gold-medium">{t('search_checkin')}</span>
           <input
             type="date"
             value={checkIn}
@@ -58,10 +58,10 @@ export default function HeroSearch() {
       </div>
 
       {/* Check Out */}
-      <div className="flex-1 flex items-center gap-3 px-4 py-2.5 sm:py-2 rounded-xl sm:rounded-full hover:bg-white/5 transition-colors border-b sm:border-b-0 sm:border-r border-white/10">
-        <Calendar className="w-5 h-5 text-turquoise flex-shrink-0" />
+      <div className="flex-1 flex items-center gap-3 px-4 py-2.5 sm:py-2 rounded-xl sm:rounded-full hover:bg-white/5 transition-colors border-b sm:border-b-0 sm:border-r border-gold/20">
+        <Calendar className="w-5 h-5 text-gold flex-shrink-0" />
         <div className="flex flex-col text-left">
-          <span className="text-[10px] uppercase font-bold tracking-wider text-sand-light">{t('search_checkout')}</span>
+          <span className="text-[10px] uppercase font-bold tracking-wider text-gold-medium">{t('search_checkout')}</span>
           <input
             type="date"
             value={checkOut}
@@ -73,9 +73,9 @@ export default function HeroSearch() {
 
       {/* Guests */}
       <div className="flex-1 flex items-center gap-3 px-4 py-2.5 sm:py-2 rounded-xl sm:rounded-full hover:bg-white/5 transition-colors">
-        <Users className="w-5 h-5 text-turquoise flex-shrink-0" />
+        <Users className="w-5 h-5 text-gold flex-shrink-0" />
         <div className="flex flex-col text-left">
-          <span className="text-[10px] uppercase font-bold tracking-wider text-sand-light">{t('search_guests')}</span>
+          <span className="text-[10px] uppercase font-bold tracking-wider text-gold-medium">{t('search_guests')}</span>
           <select
             value={guests}
             onChange={(e) => setGuests(e.target.value)}
@@ -92,7 +92,7 @@ export default function HeroSearch() {
       {/* Submit Button */}
       <button
         type="submit"
-        className="w-full sm:w-auto px-6 py-3.5 sm:py-4 rounded-xl sm:rounded-full bg-turquoise hover:bg-turquoise-light text-navy font-heading font-extrabold text-sm tracking-wide transition-all shadow-lg shadow-turquoise/20 flex items-center justify-center gap-2 group flex-shrink-0"
+        className="w-full sm:w-auto px-6 py-3.5 sm:py-4 rounded-xl sm:rounded-full bg-gold-gradient text-navy font-heading font-extrabold text-sm tracking-wide transition-all shadow-lg shadow-gold/20 flex items-center justify-center gap-2 group flex-shrink-0 hover:opacity-95"
       >
         <Search className="w-4 h-4 stroke-[2.5]" />
         <span>{t('search_button')}</span>
