@@ -29,12 +29,12 @@ export default function Navbar() {
   return (
     <>
       <header className="sticky top-0 z-40 w-full bg-navy/95 backdrop-blur-md border-b border-gold-medium/25 text-white transition-all shadow-glass">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20 sm:h-24">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 sm:h-22 py-2">
             
-            {/* Mahligai Semporna Brand Logo */}
-            <Link href="/" className="flex items-center group">
-              <MahligaiLogo size="md" />
+            {/* Mahligai Semporna Brand Logo - Perfect Mobile Optical Alignment */}
+            <Link href="/" className="flex items-center group py-1">
+              <MahligaiLogo size="sm" showSubtitle={true} />
             </Link>
 
             {/* Desktop Navigation Links */}
@@ -57,13 +57,13 @@ export default function Navbar() {
               })}
             </nav>
 
-            {/* Action Items */}
-            <div className="flex items-center gap-2 sm:gap-3">
+            {/* Action Items - Perfectly Centered Grid on Mobile */}
+            <div className="flex items-center gap-1.5 sm:gap-3">
               {/* Language Switcher */}
               <div className="relative">
                 <button
                   onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
-                  className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-gold/30 bg-white/5 text-xs text-gray-200 hover:border-gold transition-colors"
+                  className="flex items-center gap-1 px-2 py-1.5 rounded-lg border border-gold/30 bg-white/5 text-[11px] sm:text-xs text-gray-200 hover:border-gold transition-colors"
                 >
                   <Globe className="w-3.5 h-3.5 text-gold" />
                   <span className="uppercase font-semibold text-gold-light">{language}</span>
@@ -96,12 +96,12 @@ export default function Navbar() {
               {/* Basket Icon Button */}
               <button
                 onClick={() => setIsBasketOpen(true)}
-                className="relative p-2.5 rounded-full bg-white/5 hover:bg-gold/20 border border-gold/30 text-white hover:text-gold transition-all"
+                className="relative p-2 sm:p-2.5 rounded-full bg-white/5 hover:bg-gold/20 border border-gold/30 text-white hover:text-gold transition-all"
                 aria-label="Open Travel Basket"
               >
-                <ShoppingBag className="w-5 h-5 text-gold" />
+                <ShoppingBag className="w-4 h-4 sm:w-5 sm:h-5 text-gold" />
                 {items.length > 0 && (
-                  <span className="absolute -top-1 -right-1 w-5 h-5 bg-gold text-navy font-extrabold text-xs rounded-full flex items-center justify-center animate-bounce shadow-md">
+                  <span className="absolute -top-1 -right-1 w-4 h-4 sm:w-5 sm:h-5 bg-gold text-navy font-extrabold text-[10px] sm:text-xs rounded-full flex items-center justify-center animate-bounce shadow-md">
                     {items.length}
                   </span>
                 )}
@@ -119,18 +119,18 @@ export default function Navbar() {
               {/* User Profile / Login */}
               <Link
                 href="/login"
-                className="p-2.5 rounded-full bg-gold-gradient text-navy font-bold hover:opacity-90 transition-opacity shadow-md shadow-gold/20"
+                className="p-2 sm:p-2.5 rounded-full bg-gold-gradient text-navy font-bold hover:opacity-90 transition-opacity shadow-md shadow-gold/20"
                 aria-label="Profile"
               >
-                <User className="w-5 h-5" />
+                <User className="w-4 h-4 sm:w-5 sm:h-5" />
               </Link>
 
               {/* Mobile Hamburger Menu Toggle */}
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="lg:hidden p-2 text-gray-300 hover:text-gold"
+                className="lg:hidden p-1.5 text-gray-300 hover:text-gold"
               >
-                {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                {isMobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
               </button>
             </div>
           </div>
