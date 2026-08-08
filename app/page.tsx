@@ -18,18 +18,24 @@ export default function HomePage() {
 
   return (
     <div className="space-y-0 overflow-hidden bg-navy">
-      {/* 1. CINEMATIC AERIAL ISLAND HERO WITH MAHLIGAI BRANDING */}
+      {/* 1. CINEMATIC DYNAMIC MOTION AERIAL HERO */}
       <section className="relative min-h-[82vh] sm:min-h-[90vh] flex flex-col justify-between pt-8 pb-12 px-4 sm:px-6 lg:px-8 border-b border-gold-medium/20 overflow-hidden">
-        {/* Background Image: Aerial Drone Shot of Semporna Islands & Coral Lagoon */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="https://images.unsplash.com/photo-1512100356356-de1b84283e18?auto=format&fit=crop&w=2000&q=80"
-            alt="Semporna Islands Aerial Drone Photography"
-            fill
-            priority
-            className="object-cover object-center scale-105"
-          />
-          {/* Dark Onyx Gradient Overlay for contrast */}
+        {/* Background Layer: Drone Motion Pan-Zoom & Water Shimmer */}
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+          <div className="relative w-full h-full animate-drone-hero">
+            <Image
+              src="https://images.unsplash.com/photo-1512100356356-de1b84283e18?auto=format&fit=crop&w=2000&q=80"
+              alt="Semporna Islands Aerial Drone Live Motion"
+              fill
+              priority
+              className="object-cover object-center"
+            />
+          </div>
+
+          {/* Ambient Ocean Light Shimmer Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-tr from-turquoise/10 via-transparent to-gold/10 animate-water-shimmer mix-blend-overlay" />
+
+          {/* Dark Onyx Gradient Overlay for Text Legibility */}
           <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/60 to-navy/30" />
           <div className="absolute inset-0 bg-gradient-to-r from-navy/80 via-transparent to-navy/80" />
         </div>

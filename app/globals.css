@@ -20,6 +20,45 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
+/* Cinematic Slow Ken Burns Aerial Video Motion */
+@keyframes kenburns-drone {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  50% {
+    transform: scale(1.12) translate(-1.5%, -1%);
+  }
+  100% {
+    transform: scale(1.03) translate(1%, 0.5%);
+  }
+}
+
+/* Ambient Water Wave Reflection Shimmer */
+@keyframes ocean-shimmer {
+  0% {
+    opacity: 0.15;
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    opacity: 0.35;
+    transform: translateY(-8px) scale(1.02);
+  }
+  100% {
+    opacity: 0.15;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-drone-hero {
+  animation: kenburns-drone 24s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.animate-water-shimmer {
+  animation: ocean-shimmer 6s ease-in-out infinite;
+  will-change: opacity, transform;
+}
+
 /* Gold Metallic Text Gradient */
 .text-gold-gradient {
   background: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 50%, #9A7B38 100%);
